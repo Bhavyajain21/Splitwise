@@ -173,6 +173,16 @@
   padding: 10px;
   border-radius: 10px;
 }
+.transaction-history-key{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: large;
+  font-weight: bold;
+}
+.transaction-desc{
+  width: 50%;
+}
 .upper{
   display: flex;
   justify-content: center;
@@ -210,4 +220,25 @@
 }
 .addExpense>span{
   margin-left: 10px;
+}
+.paid-by{
+  color: rgb(133, 114, 4);
+}
+.total{
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px solid rgb(133, 114, 4);
+  display: flex;
+  justify-content: space-between;
+  width: 89%;
+  border-radius: 10px;
+}
+.settledUp{
+  color: green;
+}
+.youOwe{
+  color: red;
+}
+.friendOwe{
+  color: rgb(235, 94, 94)
 }

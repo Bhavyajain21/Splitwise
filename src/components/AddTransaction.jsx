@@ -43,11 +43,15 @@ const AddTransaction = () => {
       const currValue = localStorage.getItem(transId);
       const arr = [];
       arr.push(currValue);
-      arr.push([description, amount]);
+      if (payByMe) arr.push([description, amount, "You paid"]);
+      if (payByFriend) arr.push([description, amount, `${transId} paid`]);
       localStorage.setItem(transId, arr);
       return;
     }
-    localStorage.setItem(transId, [description, amount]);
+    const arr = [];
+    if (payByMe) arr.push([description, amount, "You paid"]);
+    if (payByFriend) arr.push([description, amount, `${transId} paid`]);
+    localStorage.setItem(transId, arr);
   };
 
   return (
@@ -63,6 +67,7 @@ const AddTransaction = () => {
         </div>
         <div className="transaction-amount">
           <input
+            type="number"
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter Amount"></input>
         </div>
