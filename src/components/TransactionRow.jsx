@@ -29,9 +29,9 @@ const TransactionRow = ({ name, arr, index, setMainArr }) => {
           </div>
           <div className="transaction-amount">Rs. {arr[1]}</div>
         </div>
-        <div className="editIcon">
+        {/* <div className="editIcon">
           <FaRegEdit />
-        </div>
+        </div> */}
         <div
           onClick={() => handleTransactionDelete(index)}
           className="deleteIcon">

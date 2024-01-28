@@ -8,7 +8,6 @@ const NewTransactionDiv = ({ items }) => {
   useEffect(() => {
     const finalArr = getFinalArr();
     setMainArr(finalArr);
-    console.log("Bhavya");
   }, [localStorage]);
 
   return (
