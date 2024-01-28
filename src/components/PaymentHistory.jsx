@@ -7,7 +7,6 @@ import NewTransactionDiv from "./NewTransactionDiv";
 
 const PaymentHistory = () => {
   let items = { ...localStorage };
-  const [name, setName] = useState("");
   return (
     <div className="history-container">
       <Link to="/addFriend">
@@ -21,12 +20,6 @@ const PaymentHistory = () => {
         </h1>
       </div>
 
-      <div className="transaction-search">
-        <input
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          placeholder="Search History"></input>
-      </div>
       <NewTransactionDiv items={items} />
       {/* <TransactionDiv items={items} /> */}
     </div>

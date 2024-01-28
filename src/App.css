@@ -70,6 +70,28 @@
   width: 300px;
   margin-top: 40px;
 }
+.fullpaidByYou{
+  border: 2px solid green;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+.fullpaidByYouSelected{
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid green;
+  margin-top: 20px;
+}
+.fullpaidByYou:hover{
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
 .paidByYou{
   border: 2px solid green;
   border-radius: 10px;
@@ -92,6 +114,28 @@
 }
 .pay-container{
   margin-top: 30px;
+}
+.fullpaidByFriend{
+  margin-top: 20px;
+  border: 2px solid rgb(210, 3, 172);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.fullpaidByFriend:hover{
+  background-color: rgb(210, 3, 172);
+  color: white;
+  cursor: pointer;
+}
+.fullpaidByFriendSelected{
+  background-color: rgb(210, 3, 172);
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+  border: 2px solid rgb(210, 3, 172);
 }
 .paidByFriend{
   margin-top: 20px;
@@ -225,12 +269,14 @@
   color: rgb(133, 114, 4);
 }
 .total{
-  margin-top: 20px;
-  padding: 10px;
-  border: 3px solid rgb(133, 114, 4);
   display: flex;
+  flex: 1 1;
   justify-content: space-between;
-  width: 89%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 3px solid rgb(133, 114, 4);
+  width: 93%;
   border-radius: 10px;
 }
 .settledUp{
@@ -241,4 +287,9 @@
 }
 .friendOwe{
   color: rgb(235, 94, 94)
+}
+.no-history{
+  display: flex;
+  justify-content: center;
+  margin-top: 180px;
 }
