@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import TransactionRow from "./TransactionRow";
 import TransactionHistory from "./TransactionHistory";
 import { getFinalArr } from "../helper";
+import { Link } from "react-router-dom";
+
 const NewTransactionDiv = ({ items }) => {
   const [mainArr, setMainArr] = useState([]);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     const finalArr = getFinalArr();
@@ -12,6 +15,14 @@ const NewTransactionDiv = ({ items }) => {
 
   return (
     <div>
+      {mainArr.length != 0 && (
+        <div className="transaction-search">
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="Search History"></input>
+        </div>
+      )}
       {mainArr.length != 0 ? (
         mainArr.map((arr, index) => {
           let newArr = arr.slice(1);
@@ -35,7 +46,10 @@ const NewTransactionDiv = ({ items }) => {
           );
         })
       ) : (
-        <h1>No History Found!!</h1>
+        <div className="goHome">
+          <h1 className="no-history">No History Found!!</h1>
+          <Link to="/"> Go Home </Link>
+        </div>
       )}
     </div>
   );

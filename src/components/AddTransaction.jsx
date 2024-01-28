@@ -14,6 +14,8 @@ const AddTransaction = () => {
   const [open, setOpen] = React.useState(false);
   const [payByMe, setPayByMe] = useState(false);
   const [payByFriend, setPayByFriend] = useState(false);
+  const [fullpayByMe, setfullPayByMe] = useState(false);
+  const [fullpayByFriend, setfullPayByFriend] = useState(false);
 
   const style = {
     position: "absolute",
@@ -30,11 +32,27 @@ const AddTransaction = () => {
   const handlePayByMe = () => {
     setPayByMe(!payByMe);
     setPayByFriend(false);
+    setfullPayByMe(false);
+    setfullPayByFriend(false);
   };
 
   const handlePayByFriend = () => {
     setPayByFriend(!payByFriend);
     setPayByMe(false);
+    setfullPayByMe(false);
+    setfullPayByFriend(false);
+  };
+  const handlefullPayByMe = () => {
+    setfullPayByMe(!fullpayByMe);
+    setfullPayByFriend(false);
+    setPayByMe(false);
+    setPayByFriend(false);
+  };
+  const handlefullPayByFriend = () => {
+    setfullPayByFriend(!fullpayByFriend);
+    setfullPayByMe(false);
+    setPayByMe(false);
+    setPayByFriend(false);
   };
 
   const handleSubmit = () => {
@@ -45,12 +63,21 @@ const AddTransaction = () => {
       arr.push(currValue);
       if (payByMe) arr.push([description, amount, "You paid"]);
       if (payByFriend) arr.push([description, amount, `${transId} paid`]);
+      if (fullpayByMe)
+        arr.push([description, amount, `${transId} borrows full amount`]);
+      if (fullpayByFriend)
+        arr.push([description, amount, `You borrow full amount`]);
       localStorage.setItem(transId, arr);
       return;
     }
     const arr = [];
     if (payByMe) arr.push([description, amount, "You paid"]);
     if (payByFriend) arr.push([description, amount, `${transId} paid`]);
+    if (fullpayByMe)
+      arr.push([description, amount, `${transId} borrows full amount`]);
+    if (fullpayByFriend)
+      arr.push([description, amount, `You borrow full amount`]);
+
     localStorage.setItem(transId, arr);
   };
 
@@ -110,9 +137,25 @@ const AddTransaction = () => {
               }>
               Paid by {transId} and split equally
             </div>
+            <div
+              onClick={handlefullPayByMe}
+              className={
+                !fullpayByMe ? "fullpaidByYou" : "fullpaidByYouSelected"
+              }>
+              {transId} borrows full amount
+            </div>
+            <div
+              onClick={handlefullPayByFriend}
+              className={
+                !fullpayByFriend
+                  ? "fullpaidByFriend"
+                  : "fullpaidByFriendSelected"
+              }>
+              You borrow full amount
+            </div>
           </div>
 
-          {(payByFriend || payByMe) && (
+          {(payByFriend || payByMe || fullpayByFriend || fullpayByMe) && (
             <Link to="/history">
               <Button onClick={handleSubmit} className="submit-btn">
                 Submit
